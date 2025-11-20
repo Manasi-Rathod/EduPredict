@@ -111,12 +111,6 @@ Your dataset may include:
 
 ---
 
-## 📜 License
-
-This project is licensed under the **MIT License**.
-
----
-
 ## 🤝 Contributing
 
 Contributions, improvements, and suggestions are always welcome!
