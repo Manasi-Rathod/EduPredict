@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Placement Predictor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-radius: 12px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"], input[type="number"], select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+
+        .success {
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+
+        .eda-images {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .eda-images img {
+            width: 48%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Placement Predictor</h2>
+        <form method="POST">
+            <label>Previous Semester Result:</label>
+            <input type="text" name="prev_result" placeholder="Enter marks/percentage" required>
+
+            <label>CGPA:</label>
+            <input type="text" name="cgpa" placeholder="Enter CGPA" required>
+
+            <label>Academic Performance:</label>
+            <input type="text" name="academic" placeholder="Enter academic score" required>
+
+            <label>Internship Experience:</label>
+            <select name="internship" required>
+                <option value="">Select</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label>Extra Curricular Score:</label>
+            <input type="text" name="extra_curricular" placeholder="Enter score" required>
+
+            <label>Communication Skills Score:</label>
+            <input type="text" name="communication" placeholder="Enter score" required>
+
+            <label>Projects Completed:</label>
+            <input type="text" name="projects" placeholder="Enter number of projects" required>
+
+            <input type="submit" value="Predict Placement">
+        </form>
+
+        {% if prediction %}
+            <div class="result success">{{ prediction }}</div>
+        {% endif %}
+
+        {% if error %}
+            <div class="result error">{{ error }}</div>
+        {% endif %}
+
+        <div class="eda-images">
+            <img src="{{ url_for('static', filename='placement_distribution.png') }}" alt="Placement Distribution">
+            <img src="{{ url_for('static', filename='correlation_heatmap.png') }}" alt="Correlation Heatmap">
+        </div>
+    </div>
+</body>
+</html>
