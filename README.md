@@ -16,10 +16,10 @@
 It offers an intuitive **Flask-based dashboard** where students or administrators can enter academic data and instantly receive performance insights.
 
 This system is ideal for:
-🎓 Colleges & Training Institutes
-📊 Academic Counselors
-🧑‍🏫 Faculty & Mentors
-👨‍🎓 Students improving academic planning
+* 🎓 Colleges & Training Institutes
+* 📊 Academic Counselors
+* 🧑‍🏫 Faculty & Mentors
+* 👨‍🎓 Students improving academic planning
 
 ---
 
